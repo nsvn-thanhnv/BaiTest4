@@ -6,27 +6,29 @@
     <meta charset="utf-8">
     <script>
         // define the class Human
-        var Human = function () {
-            this.name = "";
-            this.age = "";
-        };
+        class Human {
+            constructor() {
+                this.name = "";
+                this.age = "";
+            }
 
-        Human.prototype.setName = function (name) {
-            this.name = name;
-            // nếu không return this như bên dưới khi sử dụng chain method sẽ gặp lỗi 
-            // chainfunction.html:37 Uncaught TypeError: Cannot read property 'setAge' of undefined
-            return this;
-        };
+            setName(name) {
+                this.name = name;
+                // nếu không return this như bên dưới khi sử dụng chain method sẽ gặp lỗi 
+                // chainfunction.html:37 Uncaught TypeError: Cannot read property 'setAge' of undefined
+                return this;
+            }
 
-        Human.prototype.setAge = function (age) {
-            this.age = age;
-            return this;
-        };
+            setAge(age) {
+                this.age = age;
+                return this;
+            }
 
-        Human.prototype.info = function () {
-            console.log(this.name + " is " + this.age + " years old");
-            return this;
-        };
+            info() {
+                console.log(this.name + " is " + this.age + " years old");
+                return this;
+            }
+        }
 
         // don't use chain function
         var human = new Human();
